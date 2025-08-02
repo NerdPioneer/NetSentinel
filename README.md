@@ -1,5 +1,5 @@
 # NetSentinel
-is a modular Python project that captures, parses, and analyzes network traffic to detect suspicious activity using custom security logic. This tool is designed to simulate real-world SOC responsibilities and demonstrate technical proficiency in packet-level traffic analysis and network threat detection.
+is a modular Python project that captures, parses, and analyzes network traffic to detect suspicious activity using custom security logic. This tool is designed to simulate real-world SOC responsibilities and demonstrate technical proficiency in packet-level traffic analysis and network threat detection. As I navigate on building this project, I am going to perform test, allow feedback and improve overtime. I am aiming to have this project to be completed in 7 intial phases. 
 
 ---
 
