@@ -1,0 +1,90 @@
+[build-system]
+requires = ["setuptools>=45", "wheel", "setuptools_scm[toml]>=6.2"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "netsentinel"
+description = "A modular Python project for network traffic analysis and threat detection"
+readme = "README.md"
+requires-python = ">=3.8"
+license = {text = "MIT"}
+authors = [
+    {name = "Your Name", email = "your.email@example.com"},
+]
+keywords = ["networking", "security", "packet-analysis", "threat-detection", "cybersecurity"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Information Technology",
+    "Topic :: Security",
+    "Topic :: System :: Networking :: Monitoring",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10", 
+    "Programming Language :: Python :: 3.11",
+]
+dependencies = [
+    "scapy>=2.4.5",
+    "pyshark>=0.6",
+    "PyYAML>=6.0",
+    "python-dotenv>=0.19.0",
+    "Flask>=2.0.0",
+    "Flask-CORS>=3.0.10",
+    "pandas>=1.3.0",
+    "matplotlib>=3.5.0",
+    "seaborn>=0.11.0",
+    "psutil>=5.8.0",
+    "requests>=2.25.0",
+]
+dynamic = ["version"]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=6.2.0",
+    "pytest-cov>=2.12.0",
+    "black>=21.0.0",
+    "flake8>=3.9.0",
+    "mypy>=0.910",
+]
+geo = [
+    "maxminddb>=2.2.0",
+    "geoip2>=4.6.0",
+]
+ml = [
+    "scikit-learn>=1.0.0",
+    "numpy>=1.21.0",
+]
+
+[project.scripts]
+netsentinel = "netsentinel.main:main"
+
+[project.urls]
+Homepage = "https://github.com/yourusername/NetSentinel"
+Documentation = "https://github.com/yourusername/NetSentinel/docs"
+Repository = "https://github.com/yourusername/NetSentinel"
+"Bug Tracker" = "https://github.com/yourusername/NetSentinel/issues"
+
+[tool.setuptools]
+packages = ["netsentinel"]
+
+[tool.setuptools_scm]
+write_to = "netsentinel/_version.py"
+
+[tool.black]
+line-length = 88
+target-version = ['py38']
+include = '\.pyi?$'
+
+[tool.mypy]
+python_version = "3.8"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+
+[tool.pytest.ini_options]
+minversion = "6.0"
+addopts = "-ra -q --strict-markers"
+testpaths = [
+    "tests",
+]

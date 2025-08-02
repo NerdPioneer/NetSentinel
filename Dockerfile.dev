@@ -1,0 +1,62 @@
+# Development Dockerfile with additional tools
+FROM python:3.11-slim
+
+# Set environment variables
+ENV PYTHONDONTWRITEBYTECODE=1 \
+    PYTHONUNBUFFERED=1 \
+    DEBIAN_FRONTEND=noninteractive
+
+# Set work directory
+WORKDIR /app
+
+# Install system dependencies + development tools
+RUN apt-get update && apt-get install -y \
+    # Network tools and libraries
+    libpcap-dev \
+    tcpdump \
+    wireshark-common \
+    tshark \
+    # Build tools for Python packages
+    gcc \
+    g++ \
+    make \
+    # Development tools
+    vim \
+    nano \
+    git \
+    htop \
+    # System utilities
+    net-tools \
+    iproute2 \
+    iputils-ping \
+    curl \
+    wget \
+    # Clean up
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
+
+# Create a non-root user for security
+RUN useradd --create-home --shell /bin/bash netsentinel && \
+    usermod -a -G wireshark netsentinel
+
+# Copy requirements first for better Docker layer caching
+COPY requirements.txt .
+
+# Install Python dependencies + development packages
+RUN pip install --no-cache-dir --upgrade pip && \
+    pip install --no-cache-dir -r requirements.txt && \
+    pip install --no-cache-dir \
+        ipython \
+        jupyter \
+        pytest-xdist \
+        coverage
+
+# Create directories for data and logs
+RUN mkdir -p /app/data /app/logs /app/output /app/samples && \
+    chown -R netsentinel:netsentinel /app
+
+# Switch to non-root user
+USER netsentinel
+
+# Default command for development
+CMD ["/bin/bash"]

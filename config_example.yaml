@@ -1,0 +1,49 @@
+# NetSentinel Configuration Example
+# Copy this file and modify as needed for your environment
+
+# Network Configuration
+network:
+  default_interface: "eth0"          # Network interface to monitor
+  promiscuous_mode: true             # Enable promiscuous mode for packet capture
+  packet_timeout: 30                 # Timeout for packet capture in seconds
+  max_packet_size: 65535            # Maximum packet size to capture
+
+# Threat Detection Configuration
+detection:
+  port_scan_threshold: 10            # Number of ports to trigger port scan alert
+  suspicious_ports:                  # List of ports to monitor
+    - 22    # SSH
+    - 23    # Telnet
+    - 80    # HTTP
+    - 135   # RPC
+    - 139   # NetBIOS
+    - 443   # HTTPS
+    - 445   # SMB
+    - 1433  # SQL Server
+    - 3389  # RDP
+    - 5900  # VNC
+  
+  dns_blacklist:                     # Suspicious domains to monitor
+    - "malicious-domain.com"
+    - "bad-actor.net"
+  
+  ip_whitelist:                      # Trusted IP addresses (won't generate alerts)
+    - "192.168.1.0/24"
+    - "10.0.0.0/8"
+  
+  enable_geolocation: false          # Enable IP geolocation (requires external service)
+
+# Logging Configuration
+logging:
+  level: "INFO"                      # Log level: DEBUG, INFO, WARNING, ERROR, CRITICAL
+  log_file: "netsentinel.log"        # Log file path (null for console only)
+  max_file_size: 10485760           # Maximum log file size in bytes (10MB)
+  backup_count: 5                    # Number of backup log files to keep
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+
+# Output Configuration
+output:
+  alert_file: "alerts.json"          # File to save alerts
+  enable_console_output: true        # Print alerts to console
+  enable_file_output: true           # Save alerts to file
+  alert_format: "json"               # Alert format: json or csv

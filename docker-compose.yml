@@ -1,0 +1,77 @@
+version: '3.8'
+
+services:
+  netsentinel:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: netsentinel
+    # Network mode host is required for packet capture
+    network_mode: host
+    # Privileged mode for network interface access
+    privileged: true
+    volumes:
+      # Mount directories for persistent data
+      - ./data:/app/data
+      - ./logs:/app/logs
+      - ./output:/app/output
+      # Mount sample pcap files if available
+      - ./samples:/app/samples:ro
+      # Mount custom config if available
+      - ./config.yaml:/app/config.yaml:ro
+    environment:
+      - NETSENTINEL_LOG_LEVEL=INFO
+      - NETSENTINEL_INTERFACE=eth0
+    command: >
+      python -m netsentinel.main 
+      --config /app/config.yaml 
+      --verbose
+    restart: unless-stopped
+
+  # Optional: Web dashboard service (for future phases)
+  netsentinel-dashboard:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: netsentinel-dashboard
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./data:/app/data:ro
+      - ./logs:/app/logs:ro
+      - ./output:/app/output:ro
+    environment:
+      - FLASK_ENV=production
+      - FLASK_APP=netsentinel.dashboard
+    command: >
+      python -m flask run 
+      --host=0.0.0.0 
+      --port=5000
+    depends_on:
+      - netsentinel
+    restart: unless-stopped
+    profiles:
+      - dashboard
+
+  # Development service for testing
+  netsentinel-dev:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    container_name: netsentinel-dev
+    network_mode: host
+    privileged: true
+    volumes:
+      # Mount source code for development
+      - .:/app
+      - ./data:/app/data
+      - ./logs:/app/logs
+      - ./output:/app/output
+    environment:
+      - NETSENTINEL_LOG_LEVEL=DEBUG
+      - PYTHONPATH=/app
+    command: /bin/bash
+    stdin_open: true
+    tty: true
+    profiles:
+      - dev

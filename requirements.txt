@@ -1,0 +1,41 @@
+# NetSentinel Dependencies
+
+# Core networking and packet analysis
+scapy>=2.4.5
+pyshark>=0.6
+
+# Configuration and data handling
+PyYAML>=6.0
+python-dotenv>=0.19.0
+
+# Web framework (optional for dashboard)
+Flask>=2.0.0
+Flask-CORS>=3.0.10
+
+# Data analysis and visualization
+pandas>=1.3.0
+matplotlib>=3.5.0
+seaborn>=0.11.0
+
+# Network utilities
+psutil>=5.8.0
+requests>=2.25.0
+
+# Development and testing
+pytest>=6.2.0
+pytest-cov>=2.12.0
+black>=21.0.0
+flake8>=3.9.0
+mypy>=0.910
+
+# Optional: Enhanced geolocation
+# maxminddb>=2.2.0
+# geoip2>=4.6.0
+
+# Optional: Database support
+# SQLAlchemy>=1.4.0
+# sqlite3  # Built into Python
+
+# Optional: Advanced analysis
+# scikit-learn>=1.0.0
+# numpy>=1.21.0
