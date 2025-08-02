@@ -5,7 +5,15 @@ is a modular Python project that captures, parses, and analyzes network traffic 
 
 ## Project Objectives
 
-This project is built to:
+NetSentinel focuses on analyzing and detecting threats at the following OSI layers:
+
+- Layer 2 (Data Link): - MAC addresses, Ethernet frames (useful for local network mapping and spoofing detection).
+- Layer 3 (Network):-  IP addressing, routing, and packet fragmentation. Critical for threat intel matching and geolocation.
+- Layer 4 (Transport):- TCP/UDP ports, session behavior, handshake analysis. Used for detecting port scans and unusual flows.
+
+This structure aligns with how real-world security operations identify and investigate network-based threats.
+
+We want NetSentinel to be able to :-
 
 - Develop and demonstrate a deep understanding of OSI Layers 2–4.
 - Apply practical security detection logic to raw packet data.
