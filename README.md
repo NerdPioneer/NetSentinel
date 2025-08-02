@@ -24,17 +24,20 @@ We want NetSentinel to be able to :-
 
 ### Key Questions (For the Analyst Mindset)
 	1.	What would I want a tool to instantly tell me during an incident—without needing to open Wireshark or grep logs for 20 minutes?
+ 
 Think: Could NetSentinel surface obvious IOCs, highlight weird DNS, or tell me if someone’s doing a slow port scan right now?
-	2.	How can I reduce alert fatigue by only triggering when traffic breaks known baselines or hits real intel feeds?
-Think: Are we building something that cuts through the noise and says, “Hey, this matters”?
-	3.	Could I hand this tool off to a Tier 1 analyst and expect them to catch something important without extra training?
-Think: Is it simple enough to use—but powerful enough to actually help?
-	4.	If I were defending a small network alone, what kind of automated insights would give me peace of mind?
-Think: Can this act like a basic guardian—logging and alerting even while I’m off shift?
 
-**For Recruiters and Mentors:**
-- Does this project demonstrate initiative, technical depth, and security awareness?
-- Is the code modular, testable, documented, and reflective of production-ready thinking?
+	2.	How can I reduce alert fatigue by only triggering when traffic breaks known baselines or hits real intel feeds?
+ 
+Think: Are we building something that cuts through the noise and says, “Hey, this matters”?
+
+	3.	Could I hand this tool off to a Tier 1 analyst and expect them to catch something important without extra training?
+ 
+Think: Is it simple enough to use—but powerful enough to actually help?
+
+	4.	If I were defending a small network alone, what kind of automated insights would give me peace of mind?
+ 
+Think: Can this act like a basic guardian—logging and alerting even while I’m off shift?
 
 ---
 
