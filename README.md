@@ -9,11 +9,11 @@ NetSentinel is a Python packet analyzer that captures live traffic or reads pcap
 
 - Live capture on a network interface (Scapy), or offline analysis of a pcap file (PyShark)
 - Parsing of Ethernet, IPv4, TCP, UDP, ICMP, and ARP fields, including TCP flags
-- Port-scan detection when one source address touches more unique destination ports than a configurable threshold
-- Alerts when a packet targets a destination port listed as suspicious
+- Port-scan detection when one source address contacts more unique destination ports than a configurable threshold
+- Alerts when a packet uses a destination port listed as suspicious
 - Per-flow connection tracking (packet counts and byte totals)
 - YAML or JSON configuration, with environment-variable overrides for interface, scan threshold, and logging
-- A command-line entry point, `netsentinel`
+- Console script: `netsentinel`
 
 ## Requirements
 
@@ -70,14 +70,14 @@ Provide `--file`, or one of `--interface` and `--live`. When a file and a live-c
 
 Thresholds live under `detection` in the configuration file. See [config_example.yaml](config_example.yaml).
 
-- **Port scan.** NetSentinel records the set of destination ports each source IP contacts. It raises a medium-severity alert when that set grows larger than `port_scan_threshold` (default: 10). The comparison is strict, so the packet that crosses the threshold is the first alert. Further packets from that source continue to alert.
-- **Suspicious port.** A packet whose destination port is in `suspicious_ports` raises a low-severity alert. When the same packet also completes a port scan, the port-scan alert is the one reported. Built-in defaults watch ports 22, 23, 80, 443, and 3389. The sample configuration extends that list; edit it for the network under observation.
+- **Port scan.** Unique destination ports are counted per source IP. A medium-severity alert fires when that count is greater than `port_scan_threshold` (default 10). The packet that crosses the threshold is the first alert, and later packets from that source alert as well.
+- **Suspicious port.** A destination port in `suspicious_ports` raises a low-severity alert. If that same packet also crosses the scan threshold, the alert is a port scan. The built-in list is 22, 23, 80, 443, and 3389. `config_example.yaml` also includes 135, 139, 445, 1433, and 5900.
 
-Each alert includes a title, description, indicators (ports contacted, or the suspicious port), a confidence score, and follow-up recommendations.
+Each alert has a title, description, indicators, a confidence score, and recommendations.
 
 ### Tests
 
-The pytest suite covers parsing and detection with crafted packets. It runs without root and without a live interface.
+The pytest suite runs parsing and detection on crafted packets. No interface is opened.
 
 ```bash
 pytest
