@@ -127,14 +127,11 @@ Docker volumes are configured for:
 
 # Clean up everything (containers, images, volumes)
 ./docker.sh clean
-
-# Start with web dashboard (future feature)
-./docker.sh dashboard
 ```
 
-## Phase 1 Development Tasks
+## Check the core modules
 
-With Docker set up, you can now work on Phase 1 objectives:
+These commands confirm the installed package imports inside the container:
 
 1. **Packet Capture Testing**:
    ```bash
@@ -192,12 +189,4 @@ docker-compose logs netsentinel
 docker run -it --entrypoint /bin/bash netsentinel
 ```
 
-## Next Steps
-
-Once Docker is working:
-1. Test the core functionality with `./docker.sh test`
-2. Generate sample data with `./docker.sh sample`  
-3. Start developing Phase 1 features inside the container
-4. Use `./docker.sh shell` for interactive development
-
-The containerized environment gives you a consistent, reproducible setup for NetSentinel development without local dependency conflicts!
+The containerized environment gives you a consistent, reproducible setup for NetSentinel development.

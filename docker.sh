@@ -25,7 +25,6 @@ print_usage() {
     echo "  stop       - Stop all containers"
     echo "  clean      - Clean up containers and images"
     echo "  sample     - Run with sample data"
-    echo "  dashboard  - Start with web dashboard"
     echo ""
     echo "Examples:"
     echo "  $0 build       # Build images"
@@ -93,15 +92,9 @@ run_sample() {
     # First generate sample data
     docker-compose run --rm netsentinel python scripts/generate_sample_data.py
     
-    # Then analyze it (placeholder - would need actual sample pcap)
+    # generate_sample_data.py writes sample packet JSON.
     echo -e "${YELLOW}Sample data generated in container${NC}"
     echo -e "${YELLOW}To analyze: docker exec -it netsentinel python -m netsentinel.main --help${NC}"
-}
-
-start_dashboard() {
-    echo -e "${BLUE}Starting NetSentinel with dashboard...${NC}"
-    docker-compose --profile dashboard up -d
-    echo -e "${GREEN}✓ Dashboard available at http://localhost:5000${NC}"
 }
 
 # Create required directories
@@ -143,11 +136,6 @@ case "$1" in
     sample)
         setup_dirs
         run_sample
-        ;;
-    dashboard)
-        setup_dirs
-        build_images
-        start_dashboard
         ;;
     *)
         print_usage

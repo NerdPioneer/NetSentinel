@@ -239,7 +239,5 @@ class DetectionRule:
     tags: List[str] = field(default_factory=list)
     
     def matches_packet(self, packet: NetworkPacket) -> bool:
-        """Check if packet matches this rule's conditions."""
-        # This would contain the actual rule matching logic
-        # For now, return False as placeholder
+        """Return False for every packet."""
         return False

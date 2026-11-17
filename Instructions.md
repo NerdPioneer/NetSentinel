@@ -1,7 +1,7 @@
 # NetSentinel Development Instructions
 
 ## Project Context
-NetSentinel is a modular Python project for network traffic analysis and threat detection. It's designed to simulate real-world SOC responsibilities and demonstrate technical proficiency in packet-level traffic analysis.
+NetSentinel captures live traffic or reads pcap files, parses packet fields, and flags port scans and connections to suspicious ports.
 
 ## Development Philosophy
 - Clean, modular architecture following Python best practices
@@ -74,22 +74,6 @@ NetSentinel is a modular Python project for network traffic analysis and threat 
 - Type hints where appropriate
 - README files for major components
 - Examples and usage instructions
-
-## Phase Development Approach
-
-### Phase 1: Foundation
-- Basic packet capture and parsing
-- Simple threat detection (port scans)
-- CLI interface
-- Docker environment
-- Testing framework
-
-### Future Phases
-- Enhanced detection algorithms
-- Web dashboard
-- Database integration
-- Machine learning capabilities
-- Real-time alerting
 
 ## Git Workflow
 

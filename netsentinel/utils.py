@@ -158,9 +158,7 @@ def sanitize_filename(filename: str) -> str:
 
 
 def get_geolocation(ip_address: str) -> Optional[Dict[str, Any]]:
-    """Get geolocation information for IP address."""
-    # This would integrate with a geolocation service
-    # For now, return placeholder
+    """Return a fixed private-network location, or None for any other address."""
     if is_private_ip(ip_address):
         return {
             'country': 'Private',
@@ -168,8 +166,7 @@ def get_geolocation(ip_address: str) -> Optional[Dict[str, Any]]:
             'latitude': 0.0,
             'longitude': 0.0
         }
-    
-    # TODO: Integrate with actual geolocation service (MaxMind, etc.)
+
     return None
 
 

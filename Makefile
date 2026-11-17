@@ -74,11 +74,6 @@ run-sample:
 	@echo "Sample data generated. You can now test with:"
 	@echo "python -m netsentinel.main --help"
 
-# Development server (if Flask dashboard is implemented)
-serve:
-	@echo "Starting NetSentinel dashboard..."
-	# python -m netsentinel.dashboard
-
 # Package building
 build:
 	python -m build
