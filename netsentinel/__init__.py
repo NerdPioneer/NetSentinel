@@ -6,8 +6,7 @@ to detect suspicious activity using custom security logic.
 """
 
 __version__ = "0.1.0"
-__author__ = "Your Name"
-__email__ = "your.email@example.com"
+__author__ = "Ezekiel Obeisun Jr"
 
 # Core modules - import with error handling
 try:
