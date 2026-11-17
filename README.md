@@ -1,13 +1,9 @@
 # NetSentinel
 
-NetSentinel is a Python packet analyzer that captures live traffic or reads pcap files, parses OSI Layers 2–4, and flags port scans and other suspicious activity. It is Ezekiel Obeisun Jr's Phase 1 cybersecurity project: an early-stage command-line tool with working capture, parsing, and two detection rules, built as the foundation for a larger network-defense workflow.
+NetSentinel is a Python packet analyzer that captures live traffic or reads pcap files, parses OSI Layers 2–4, and flags port scans and other suspicious activity. It is in Phase 1 (early stage).
 
 **Author:** [Ezekiel Obeisun Jr](https://github.com/NerdPioneer)  
 **Repository:** [github.com/NerdPioneer/NetSentinel](https://github.com/NerdPioneer/NetSentinel)
-
-## Status
-
-This repository is in **Phase 1 (early stage)**. The command-line analyzer captures packets, extracts metadata, and raises alerts for port scans and configured suspicious ports. Later phases extend detection, persist alerts, and add a dashboard. Phase 1 is a portfolio implementation of packet analysis, aimed at demonstration and further development.
 
 ## Features
 
@@ -88,14 +84,6 @@ pytest
 ```
 
 `python scripts/quick_test.py` is a separate manual smoke check of imports, models, and detection.
-
-## Roadmap
-
-| Phase | Scope |
-| --- | --- |
-| Phase 1 (current) | CLI capture from an interface or a pcap file, Layer 2–4 parsing, port-scan and suspicious-port detection, YAML/JSON configuration |
-| Next | Additional detection rules, alert export to disk, and fuller operational logging |
-| Later | Web dashboard, stored alert history, optional IP geolocation, and statistical scoring |
 
 ## Layout
 
