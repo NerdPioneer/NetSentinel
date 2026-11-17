@@ -1,6 +1,6 @@
 # NetSentinel
 
-NetSentinel is a Python packet analyzer that captures live traffic or reads pcap files, parses OSI Layers 2–4, and flags port scans and other suspicious activity. It is in Phase 1 (early stage).
+NetSentinel is a Python packet analyzer that captures live traffic or reads pcap files, parses OSI Layers 2–4, and flags port scans and other suspicious activity.
 
 **Author:** [Ezekiel Obeisun Jr](https://github.com/NerdPioneer)  
 **Repository:** [github.com/NerdPioneer/NetSentinel](https://github.com/NerdPioneer/NetSentinel)

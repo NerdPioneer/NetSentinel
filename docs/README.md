@@ -1,13 +1,12 @@
 # NetSentinel Documentation
 
-NetSentinel is in Phase 1. This directory is the documentation index.
+This directory is the documentation index for NetSentinel.
 
 ## Start here
 
 - [Project README](../README.md) — summary, features, installation, and usage
 - [Docker](../DOCKER.md) — container setup for development and live capture
 - [Example configuration](../config_example.yaml) — scan threshold, suspicious ports, and logging
-- [Phase 1 notes](../PHASE1_STATUS.md) — scope of the current phase
 
 ## Current behavior
 
