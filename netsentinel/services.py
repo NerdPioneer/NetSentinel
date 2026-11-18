@@ -250,9 +250,7 @@ class ThreatDetector:
         # Suspicious port detection
         elif self._detect_suspicious_port(packet):
             alert = self._create_suspicious_port_alert(packet)
-        
-        # TODO: Add more detection methods
-        
+
         if alert:
             self.alerts.append(alert)
             self.stats['alerts_generated'] += 1

@@ -20,12 +20,11 @@ with open('requirements.txt') as f:
 setup(
     name="netsentinel",
     version="0.1.0",
-    author="Your Name",
-    author_email="your.email@example.com",
+    author="Ezekiel Obeisun Jr",
     description="A modular Python project for network traffic analysis and threat detection",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/yourusername/NetSentinel",
+    url="https://github.com/NerdPioneer/NetSentinel",
     packages=find_packages(),
     classifiers=[
         "Development Status :: 3 - Alpha",
@@ -68,8 +67,8 @@ setup(
         "netsentinel": ["*.yaml", "*.json"],
     },
     project_urls={
-        "Bug Reports": "https://github.com/yourusername/NetSentinel/issues",
-        "Source": "https://github.com/yourusername/NetSentinel",
-        "Documentation": "https://github.com/yourusername/NetSentinel/docs",
+        "Bug Reports": "https://github.com/NerdPioneer/NetSentinel/issues",
+        "Source": "https://github.com/NerdPioneer/NetSentinel",
+        "Documentation": "https://github.com/NerdPioneer/NetSentinel/docs",
     },
 )

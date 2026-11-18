@@ -54,9 +54,6 @@ RUN mkdir -p /app/data /app/logs /app/output && \
 # Switch to non-root user
 USER netsentinel
 
-# Expose port for potential web interface
-EXPOSE 5000
-
 # Health check
 HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
     CMD python -c "import netsentinel; print('NetSentinel is healthy')" || exit 1

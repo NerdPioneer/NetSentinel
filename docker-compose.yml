@@ -28,31 +28,6 @@ services:
       --verbose
     restart: unless-stopped
 
-  # Optional: Web dashboard service (for future phases)
-  netsentinel-dashboard:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    container_name: netsentinel-dashboard
-    ports:
-      - "5000:5000"
-    volumes:
-      - ./data:/app/data:ro
-      - ./logs:/app/logs:ro
-      - ./output:/app/output:ro
-    environment:
-      - FLASK_ENV=production
-      - FLASK_APP=netsentinel.dashboard
-    command: >
-      python -m flask run 
-      --host=0.0.0.0 
-      --port=5000
-    depends_on:
-      - netsentinel
-    restart: unless-stopped
-    profiles:
-      - dashboard
-
   # Development service for testing
   netsentinel-dev:
     build:
